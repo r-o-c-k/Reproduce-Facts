@@ -24,22 +24,20 @@
 
 [[True|3T]]&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp[[False|3F]]</tw-passagedata><tw-passagedata pid="4" name="4" tags="T" position="1000,400" size="100,100">Having vaginal discharge is healthy and normal.
 
-[[True|4T]]&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp[[False|4F]]</tw-passagedata><tw-passagedata pid="5" name="Intro" tags="" position="100,75" size="100,100">Many harmful gender norms are grounded in misguided extrapolations about reproductive biology, (i.e. women give birth, therefore they should do all of the childrearing.) so this game aims to dismantle gender inequities by unpacking the myths that cause them:
+[[True|4T]]&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp[[False|4F]]</tw-passagedata><tw-passagedata pid="5" name="Intro" tags="" position="100,75" size="100,100">Many harmful gender norms are grounded in misguided extrapolations about reproductive biology. (i.e. women give birth, therefore they should do all of the childrearing.) This game aims to dismantle gender inequities by unpacking the myths that cause them:
+
+(Please flip phone to landscape mode. The blue text below can be clicked.)
 (set: $factoidList to (array: &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;7&quot;,&quot;8&quot;,&quot;9&quot;,&quot;10&quot;,&quot;11&quot;,&quot;12&quot;,&quot;13&quot;,&quot;14&quot;,&quot;15&quot;,&quot;16&quot;,&quot;17&quot;,&quot;18&quot;,&quot;19&quot;,&quot;20&quot;,&quot;21&quot;,&quot;22&quot;,&quot;23&quot;,&quot;24&quot;,&quot;25&quot;))
 (set: $headlineList to (array: &quot;1h&quot;,&quot;2h&quot;,&quot;3h&quot;))\
-===|=
+=|=
 [[Factoids|Next]]
-=|===
- [[Headlines]]\
-|==|
-===|=
 (text-colour:(hsl:0,0,0.5333,0.7))[Learn about reproductive health 
 and biology as you rapidly sort 
 through facts and fictions.]
-=|===
-(text-colour:(hsl:0,0,0.5333,0.7))[Learn to recognize the patterns through which health
-misinformation spreads.]
-|==|
+=|=
+[[Headlines]]
+ (text-colour:(hsl:0,0,0.5333,0.7))[ Learn to recognize the patterns through which health misinformation spreads.]
+|=|
 
 (set:$hPoints to 0)
 (set:$tfPoints to 0)
@@ -55,11 +53,18 @@ misinformation spreads.]
     
     ]
     
-    (if: $length = 0)[ Congratualtions! You&#39;ve played through all of the factoids currently in the game. 
+    (if: $length = 0)[ Congratualtions! You&#39;ve played through all of the factoids currently in the game and scored $tfpoints/25 points!
    
-   To learn how reproductive health misinformation spreads, play through the [[Headlines gamemode|Headlines]].]
+   To learn how reproductive health misinformation spreads, play the [[Headlines gamemode|Headlines]].]
 
-    </tw-passagedata><tw-passagedata pid="7" name="17" tags="F" position="3925,400" size="100,100">The endometrium, which lines the uterus, acts as a welcoming landing site for any fertilized human egg it encounters.
+
+
+
+     (if: $length = 0 and $headlinelength = 0) [Congratualations! You&#39;ve finished the game! 
+     
+     You got $tfpoints/25 factoids and $hPoints/3 headlines correct!]
+     
+     [[Click here to play again|Intro]]</tw-passagedata><tw-passagedata pid="7" name="17" tags="F" position="3925,400" size="100,100">The endometrium, which lines the uterus, acts as a welcoming landing site for any fertilized human egg it encounters.
 
 [[True|17T]]&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp[[False|17F]]</tw-passagedata><tw-passagedata pid="8" name="#, tagged T or F" tags="" position="100,400" size="100,100">
 [[True|#T]]&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp[[False|#F]]</tw-passagedata><tw-passagedata pid="9" name="1T" tags="" position="275,525" size="100,100"> (if: (passage: (history:)&#39;s last)&#39;s tags contains &quot;T&quot;)[&lt;div style=&quot;background-color: green; padding: 10px; margin: 10px; height: 57px; width: 150px; border-radius: 15px; margin:auto;&quot;&gt;Correct!&lt;/div&gt;](else:)[&lt;div style=&quot;background-color: red; padding: 10px; margin: 10px; height: 57px; border-radius: 15px; width: 150px; margin: auto;&quot;&gt;Incorrect&lt;/div&gt;]
@@ -505,7 +510,20 @@ Up to 65% of boys experience gynecomastia, or the enlargement of male breast tis
 	(set: $headlineList to it - (array: $headline))
 	(go-to: $headline)
     
-    ]</tw-passagedata><tw-passagedata pid="82" name="1h" tags="F" position="325,700" size="100,100">“California Bill Will Legalize Infanticide” - Right to Life League
+    ]
+    
+        (if: $headlinelength = 0)[ Congratualtions! You&#39;ve played through all of the headlines currently in the game and scored $hPoints/3 points!
+   
+   To learn about reproductive health and biology, play through the [[Factoids gamemode|Next]].]
+
+
+
+
+        (if: $length = 0 and $headlinelength = 0) [Congratualations! You&#39;ve finished the game! 
+     
+     You got $tfpoints/25 factoids and $hPoints/3 headlines correct!]
+     
+     [[Click here to play again|Intro]]</tw-passagedata><tw-passagedata pid="82" name="1h" tags="F" position="325,700" size="100,100">“California Bill Will Legalize Infanticide” - Right to Life League
 
 [[True|1hT]]&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp[[False|1hF]]</tw-passagedata><tw-passagedata pid="83" name="1hT" tags="" position="275,825" size="100,100">(if: (passage: (history:)&#39;s last)&#39;s tags contains &quot;T&quot;)[&lt;div style=&quot;background-color: green; padding: 10px; margin: 10px; height: 57px; width: 150px; border-radius: 15px; margin:auto;&quot;&gt;Correct!&lt;/div&gt;](else:)[&lt;div style=&quot;background-color: red; padding: 10px; margin: 10px; height: 57px; width:150px; border-radius: 15px; margin: auto;&quot;&gt;Incorrect&lt;/div&gt;]
 &#39;&#39;Straight from the Source: &#39;&#39;The bill in question, AB 2223, “would delete the requirement that a coroner hold inquests for deaths related to or following known or suspected self-induced or criminal abortion.” 
